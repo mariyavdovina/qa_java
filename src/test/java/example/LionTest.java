@@ -39,9 +39,10 @@ public class LionTest {
     }
     @Test
     public void testDoesHaveMainCallCorrectly(){
-        Mockito.when(lion.isHasMane()).thenReturn(true);
+        Mockito.when(lion.isHasMane()).thenReturn(false);
         Boolean tmp = lion.doesHaveMane();
         Assert.assertEquals(tmp,lion.doesHaveMane());
     }
+
 
 }
