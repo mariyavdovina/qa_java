@@ -38,7 +38,7 @@ public class LionTest {
         Assert.assertEquals(tmp.getFood("Хищник"),List.of("Животные", "Птицы", "Рыба"));
     }
     @Test
-    public void testDoesHaveMainCallCorrectly(){
+    public void testDoesHaveMainCalledCorrectly(){
         Mockito.when(lion.isHasMane()).thenReturn(false);
         Boolean tmp = lion.doesHaveMane();
         Assert.assertEquals(tmp,lion.doesHaveMane());
