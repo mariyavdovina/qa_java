@@ -52,7 +52,7 @@ public class LionCreationTest {
     }
 
     @Test
-    public void testGetKittensWithParams(){
-        Assert.assertEquals(3,lion.getFeline().getKittens(3));
+    public void testGetKittensWithParams() {
+        Assert.assertEquals(3, lion.getFeline().getKittens(3));
     }
 }

@@ -15,34 +15,55 @@ import java.util.List;
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
     Feline felineTest;
+    Lion lionTest;
     @Mock
     Lion lion;
+
     @Before
-    public void init(){
+    public void init() {
         felineTest = new Feline();
     }
+
     @Test
-    public void testGetKittens(){
+    public void testGetKittens() {
         lion.getKittens();
         Mockito.verify(lion).getKittens();
     }
+
     @Test
     public void testGetFoodCall() throws Exception {
         lion.getFood();
         Mockito.verify(lion).getFood();
     }
+
     @Test
     public void testGetFoodFelineInvoked() throws Exception {
         Mockito.when(lion.getFeline()).thenReturn(felineTest);
         Feline tmp = lion.getFeline();
-        Assert.assertEquals(tmp.getFood("Хищник"),List.of("Животные", "Птицы", "Рыба"));
+        Assert.assertEquals(tmp.getFood("Хищник"), List.of("Животные", "Птицы", "Рыба"));
     }
-/*    @Test
-    public void testDoesHaveMainCalledCorrectly(){
-        Mockito.when(lion.isHasMane()).thenReturn(false);
-        Boolean tmp = lion.doesHaveMane();
-        Assert.assertEquals(tmp,lion.doesHaveMane());
-    }*/
 
+    @Test
+    public void testConditionalConstructorMale() throws Exception {
+        lionTest = new Lion("Самец", felineTest);
+        Assert.assertTrue(lionTest.isHasMane());
+    }
+
+    @Test
+    public void testConditionalConstructorFemale() throws Exception {
+        lionTest = new Lion("Самка", felineTest);
+        Assert.assertFalse(lionTest.isHasMane());
+    }
+
+    @Test
+    public void testConditionalConstructorOther() throws Exception {
+        String msg = "";
+        try {
+            lionTest = new Lion("fgjhgk", felineTest);
+        } catch (Exception e) {
+            msg = e.getMessage();
+        }
+        Assert.assertEquals(msg, "Используйте допустимые значения пола животного - самей или самка");
+    }
 
 }
