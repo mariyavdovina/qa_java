@@ -42,6 +42,11 @@ public class LionCreationTest {
     }
 
     @Test
+    public void testIsHasMane() throws Exception {
+        Assert.assertEquals(lion.isHasMane(), expected);
+    }
+
+    @Test
     public void testGetKittens() throws Exception {
         Assert.assertEquals(1, lion.getKittens());
     }
