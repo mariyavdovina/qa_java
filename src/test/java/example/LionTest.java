@@ -44,18 +44,6 @@ public class LionTest {
     }
 
     @Test
-    public void testConditionalConstructorMale() throws Exception {
-        lionTest = new Lion("Самец", felineTest);
-        Assert.assertTrue(lionTest.isHasMane());
-    }
-
-    @Test
-    public void testConditionalConstructorFemale() throws Exception {
-        lionTest = new Lion("Самка", felineTest);
-        Assert.assertFalse(lionTest.isHasMane());
-    }
-
-    @Test
     public void testConditionalConstructorOther() throws Exception {
         String msg = "";
         try {
