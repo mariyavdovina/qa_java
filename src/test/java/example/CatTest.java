@@ -22,15 +22,18 @@ public class CatTest {
     public void init() {
         cat = new Cat(feline);
     }
+
     @Test
     public void testSound() {
         Assert.assertEquals("Мяу", cat.getSound());
     }
+
     @Test
     public void testFelineEatMeatInvoked() throws Exception {
         cat.getFood();
         Mockito.verify(feline).eatMeat();
     }
+
     @Test
     public void testGetFoodOutput() throws Exception {
         Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
